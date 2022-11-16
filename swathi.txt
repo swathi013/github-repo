@@ -1,0 +1,260 @@
+sudo su
+ap-get update
+apt-get install python3
+apt-get install pyhon
+apt-get install ansible
+python --version
+  ansible path:
+cd /etc/ansible/
+  key generate:
+ ssh-keygen
+vi ansible.cfg
+vi hosts
+[server]
+server:ip adress ansible_connection=local
+
+[clien]
+client:ip adress ansible_ssh_user=root
+cd root/.ssh
+ls
+ssh-copy-id -i /root/.ssh/id_rsa.pub root@54. ans-client ipadress[204.172.152]
+
+  ansible client:
+cd /etc/ssh/
+ls
+vi sshd_config
+service sshd restart
+service ssh restart
+ansible server:
+ansible -m ping server
+ansible -m ping client
+cd /etc/ss ssh/ ss1/
+cd /etc/ssh/
+ls
+cd /root/.ssh/
+vi authorized_keys
+ans-client:
+vi authorized_keys
+ans-server:
+cat /roo/.ssh/cd_rsa.pub
+cat authorized_keys
+ansible -m ping all
+ans-client:
+ls -ls authorized_keys
+cd /etc/ansible
+mkdir playbooks
+cd playbooks/
+vi sample.yml
+vi sample.yml
+ansible-playbook sample.yml
+vi test.yml
+ansible-playbook test.yml
+ans-client:
+httpd -v
+apache2 -h
+apache2 -v
+vi /etc/passwd
+
+when condition in ansible:
+
+---
+ - hosts: all
+   tasks:
+    - name: install apache on centos server
+      yum: name=httpd state=present
+      become: yes
+      when: ansible_os_family == "Redhat"
+
+    - name: install apache on ubuntu server
+      apt: name=apache2 state=present
+      become: yes
+      when: ansible_os_family == "Debian"
+
+
+---
+ - hosts: all
+   tasks:
+    - name: install the latest vesion for below packages
+      apt:
+       name:
+         - firewalld
+         - apache2
+         - mariadb-server
+         - php
+         - php-mysql
+
+    - name: firewalld enabled and running
+      service:
+         name: firewalld
+         enabled: true
+         state: started
+    - name: firewalld permits http service
+      firewalld:
+         service: http
+         permanent: true
+         state: enabled
+         immediate: yes
+
+      mkdir roles
+      cd roles/
+      ls
+     ansible-galaxy init samplerole
+      ls
+      cd samplerole/
+      ls
+      cd tasks/
+      ls
+      vi main.yml
+
+   ---
+ - hosts: all
+   tasks:
+    - name: running the playbooks/calling the playbooks inside the role
+
+   roles:
+     - test.yml
+     - sample.yml
+     cd ..
+    cd..
+    cd ..
+    ls
+    mkdir roles
+      cd roles/
+     cd samplerole/
+      ls
+    cd defaults/
+    ls
+    ---
+ - hosts: all
+   tasks:
+    - name: providing sudo privilages to user
+      command: usermod -aG sudo apache2
+   cd..
+   ls
+   cd handlers
+   ls---
+ - hosts: all
+   tasks:
+     - name: restart the network service
+       service:
+          name: networking.service
+          state: restarted
+
+
+     - name: install ntpdate package
+       raw: sudo apt-get install ntpdate
+
+     cd tasks/
+     ls
+     vi main.yml
+     ---
+ - host: all
+   tasks:
+   become: yes
+
+   roles:
+     - handlers
+     - defaults
+    cd ../..
+    cd ..
+    cd tasks/
+    vi main.yml
+   cd roles/samplerole/tasks/
+    vi main.yml
+   mkdir roles
+    cd roles/
+    ansible-galaxy init apache2
+    ls 
+   cd tasks
+   ls 
+   vi main.yml
+ser
+   vi install.yml
+   - name: install of apache2
+  apt:
+    name: apache2
+    state: latest
+
+    vi config.yml
+    - name: apache2.config file
+  copy: src=apache2.conf dest=/etc/apache2/apache2.conf
+  notify:
+     - restart apache2 service
+- name: send the index.html
+  copy: src=index.html dest=/var/www/html/index.html
+
+   vi service.yml
+   - name: starting the apache2 service
+  service: name=apache2 state=started
+    ls
+    cd ..
+
+   cd files/
+   vi index.html
+   <html>
+        <h1> welcome to our first class of roles<br> srilxhmi</h1>
+</html>
+  cd ..
+   ls 
+
+   cd handlers/
+   vi main.yml
+   ---
+# handlers file for apache2
+- name: restart the apache2 service
+  service: name=apache2 state=restarted
+
+   cat main.yml
+   cat ../tasks/config.yml
+    cd ..
+   cd ..
+    apt instaa tree
+    tree
+    
+    cd apache2/meta/
+    vi main.yml
+   galaxy_info:
+  author: srilaxhmi
+  description: sampleapacherolr
+  company: infosys
+   
+   cd ..
+   cd ..
+   cd ..
+   ls 
+   
+   vi site.yml
+   ---
+ - hosts: all
+   tasks:
+   roles:
+     - apache2
+
+   ansible-playbook site.yml --syntax-check
+   ansible-playbook site.yml
+    cd roles/apache2/files/
+   ls 
+    cp /etc/apache2/apache2.conf .
+    
+    cd ../..
+    cd ..
+    ansible-playbook site.yml
+
+    ansible vault create vault.yml
+    ansible vault create vault.yml 
+    yes
+   welcome to ansible vault session
+   ansible-vault encrypt site.yml
+    yes
+    ansible-vault edit vault.yml
+    editing the ansible vault file
+    ansible-vault view vault.yml
+    ansible-vault decrypt vault.yml
+    ansible-playbook site.yml --ask-vault-pass
+
+    
+    
+    
+
+
+    
