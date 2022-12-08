@@ -6,3 +6,4 @@ webhook= when we provide any new kind of commit in particular repo the its autom
 git integration=from git repository we should clone and provide the url in of git then its called ci (countinous integraion)
 jenkins
 ashok
+aws-devops
