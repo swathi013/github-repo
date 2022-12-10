@@ -7,3 +7,4 @@ git integration=from git repository we should clone and provide the url in of gi
 jenkins
 ashok
 aws-devops
+docker
